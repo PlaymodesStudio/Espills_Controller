@@ -12,13 +12,6 @@
 #include "ofMain.h"
 #include "ofxOceanodeNodeModelExternalWindow.h"
 
-enum modeSelectTypes{
-    MODE_POINTS,
-    MODE_CIRCLES,
-    MODE_SQUARES,
-    MODE_LINES
-};
-
 class graphicPatternGenerator : public ofxOceanodeNodeModelExternalWindow{
 public:
     graphicPatternGenerator();
@@ -42,7 +35,6 @@ public:
 private:
     void parameterChangedListener(ofAbstractParameter &parameter);
     int pointDraggingIndex;
-    ofTrueTypeFont font;
     
     bool someParameterChanged;
     
@@ -59,33 +51,20 @@ private:
     
     ofParameter<vector<ofPoint>> positions;
     ofParameter<int>    positionReplicator;
-    ofParameter<float>  scalePositions;
     ofParameter<ofColor> color;
-    ofParameter<int> modeSelector;
-    ofParameter<int> numVertex;
     ofParameter<bool> toCenterFigure;
-    ofParameter<float>  opacity;
-    ofParameter<float> size;
-    ofParameter<float> rotation;
-    ofParameter<float> jitter;
-    ofParameter<bool>   refollow;
-    ofParameter<float>  refollowIn;
-    ofParameter<float>  endFollow;
-    ofParameter<float>  offsetFollow;
-    ofParameter<int>    divisions;
-    ofParameter<float>  divisionSpacing;
     
-    ofParameter<vector<float>> scalePositions_vec;
-    ofParameter<vector<float>> opacity_vec;
-    ofParameter<vector<float>> size_vec;
-    ofParameter<vector<float>> rotation_vec;
-    ofParameter<vector<float>> jitter_vec;
-    ofParameter<vector<bool>>   refollow_vec;
-    ofParameter<vector<float>>  refollowIn_vec;
-    ofParameter<vector<float>>  endFollow_vec;
-    ofParameter<vector<float>>  offsetFollow_vec;
-    ofParameter<vector<int>>  divisions_vec;
-    ofParameter<vector<float>>  divisionSpacing_vec;
+    ofParameter<vector<int>>   numVertex;
+    ofParameter<vector<float>> scalePositions;
+    ofParameter<vector<float>> opacity;
+    ofParameter<vector<float>> size;
+    ofParameter<vector<float>> rotation;
+    ofParameter<vector<float>> jitter;
+    ofParameter<vector<float>>  refollowIn;
+    ofParameter<vector<float>>  endFollow;
+    ofParameter<vector<float>>  offsetFollow;
+    ofParameter<vector<int>>  divisions;
+    ofParameter<vector<float>>  divisionSpacing;
     
     int lastPositionReplicator;
     ofParameter<vector<pair<ofPolyline, ofColor>>> polyLinesOut;
