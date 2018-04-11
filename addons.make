@@ -1,0 +1,4 @@
+ofxDatGui_PM
+ofxEtherdream
+ofxIlda
+ofxOceanode
