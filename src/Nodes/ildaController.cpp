@@ -39,7 +39,6 @@ void ildaController::setup(){
 //    parameters->add(scale.set("Scale", ofPoint(1, 1), ofPoint(0,0), ofPoint(1, 1)));
     
     ofAddListener(parameters->parameterChangedE(), this, &ildaController::parameterChangedListener);
-//    pps.set(60000);
 }
 
 void ildaController::setPolylines(vector<pair<ofPolyline, ofColor>> polys){

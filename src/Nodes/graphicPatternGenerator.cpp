@@ -36,11 +36,10 @@ void graphicPatternGenerator::setup(){
     parameters->add(size_vec.set("Size Vec", {0.5}, {0}, {1}));
     parameters->add(rotation_vec.set("Rotation Vec", {0}, {0}, {1}));
     parameters->add(jitter_vec.set("Jitter Vec", {0}, {0}, {1}));
-    parameters->add(refollow_vec.set("Refollow Vec", {false}));
     parameters->add(refollowIn_vec.set("Refollow In Vec", {0}, {0}, {1}));
     parameters->add(endFollow_vec.set("End Follow Vec", {1}, {0}, {1}));
     parameters->add(offsetFollow_vec.set("Offset Follow Vec", {0}, {0}, {1}));
-    parameters->add(divisions_vec.set("Divisions Vec", {1}, {1}, {14}));
+    parameters->add(divisions_vec.set("Divisions Vec", {0}, {0}, {14}));
     parameters->add(divisionSpacing_vec.set("Division Spacing Vec", {0.5}, {0}, {1}));
     
     
@@ -98,13 +97,13 @@ vector<pair<ofPolyline, ofColor>> graphicPatternGenerator::computePolylines(){
             }
             
             
-            if(getParameterValueForPosition(refollow_vec, i)){
+            if(getParameterValueForPosition(divisions_vec, i) != 0){
                 vector<glm::vec3> polyVertex = unitPoly.getVertices();
                 unitPoly.clear();
                 int polySize = polyVertex.size();
-                for(int d = 0; d < round(getParameterValueForPosition(divisions_vec, i) * divisions.getMax()) ; d++){
+                for(int d = 0; d < getParameterValueForPosition(divisions_vec, i) ; d++){
                     ofPolyline tempPoly;
-                    float increment = 1.0/(float)(((float)round(getParameterValueForPosition(divisions_vec, i) * divisions.getMax())*2.0)-1);
+                    float increment = 1.0/(float)(((float)getParameterValueForPosition(divisions_vec, i)*2.0)-1);
                     float start = (d * 2 * increment) * getParameterValueForPosition(endFollow_vec, i);
                     float end = start + (increment * getParameterValueForPosition(divisionSpacing_vec, i) * 2 * getParameterValueForPosition(endFollow_vec, i));
                     for(int j = start * polySize; j < end * polySize ; j++){
