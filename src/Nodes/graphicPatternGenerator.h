@@ -17,7 +17,7 @@ public:
     graphicPatternGenerator();
     ~graphicPatternGenerator(){};
     
-    void setup();
+    void setup() override;
     
     void update(ofEventArgs &a) override {computePolylines();};
     

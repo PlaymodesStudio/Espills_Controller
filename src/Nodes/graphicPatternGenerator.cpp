@@ -9,7 +9,7 @@
 #include "graphicPatternGenerator.h"
 
 graphicPatternGenerator::graphicPatternGenerator() : ofxOceanodeNodeModelExternalWindow("Graphic Generator"){
-    setup();
+    //setup();
 }
 
 void graphicPatternGenerator::setup(){
@@ -46,12 +46,12 @@ void graphicPatternGenerator::setup(){
 vector<pair<ofPolyline, ofColor>> graphicPatternGenerator::computePolylines(){
     vector<pair<ofPolyline, ofColor>> coloredPolylines;
     if(true){
-        for(int i = 0 ; i < positions.get().size(); i++){
+        for(int i = 0 ; i < positions.get().size() * positionReplicator; i++){
             ofPolyline unitPoly;
             ofPoint position;
             float scaleValue = getParameterValueForPosition(scalePositions, i);
-            position.x = ofMap(scaleValue, 0.0, 1.0, 0.5, positions.get()[i].x);
-            position.y = ofMap(scaleValue, 0.0, 1.0, 0.5, positions.get()[i].y);
+            position.x = ofMap(scaleValue, 0.0, 1.0, 0.5, positions.get()[floor(i / positionReplicator)].x);
+            position.y = ofMap(scaleValue, 0.0, 1.0, 0.5, positions.get()[floor(i / positionReplicator)].y);
             ofPoint positionWithJitter = position;
             float jitterValue = getParameterValueForPosition(jitter, i);
             if(jitterValue != 0){
@@ -112,23 +112,7 @@ vector<pair<ofPolyline, ofColor>> graphicPatternGenerator::computePolylines(){
 
 void graphicPatternGenerator::parameterChangedListener(ofAbstractParameter &parameter){
     someParameterChanged = true;
-    if(parameter.getName() == "Positions"){
-        vector<ofPoint> newPos;
-        for(int i = 0 ; i < positionReplicator ; i++){
-            newPos.insert(newPos.end(), positions.get().begin(), positions.get().end());
-        }
-        positions = newPos;
-    }
-    if(parameter.getName() == "Position Replicator"){
-        int realSize = positions.get().size() / lastPositionReplicator;
-        vector<ofPoint> newPos(positions.get().begin(), positions.get().begin() + realSize);
-        positions = newPos;
-        for(int i = 0 ; i < positionReplicator-1 ; i++){
-            newPos.insert(newPos.end(), positions.get().begin(), positions.get().end());
-        }
-        positions = newPos;
-        lastPositionReplicator = positionReplicator;
-    }
+
 }
 
 

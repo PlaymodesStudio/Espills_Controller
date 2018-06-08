@@ -18,7 +18,7 @@ public:
     ildaController();
     ~ildaController(){};
     
-    void setup();
+    void setup() override;
     
     void draw(){
         ildaFrame.draw(0, 0, ofGetWidth(), ofGetHeight());
@@ -35,9 +35,6 @@ public:
     
     void setPolylines(vector<pair<ofPolyline, ofColor>> polys);
     void setPolylines();
-    
-    ofxOceanodeAbstractConnection* createConnectionFromCustomType(ofxOceanodeContainer& c, ofAbstractParameter& source, ofAbstractParameter& sink) override;
-
     
 private:
     void parameterChangedListener(ofAbstractParameter &param);

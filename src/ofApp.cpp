@@ -8,10 +8,12 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     
     auto reg = make_shared<ofxOceanodeNodeRegistry>();
+    auto treg = make_shared<ofxOceanodeTypesRegistry>();
     reg->registerModel<graphicPatternGenerator>("ESPILLS");
     reg->registerModel<ildaController>();
+    treg->registerType<vector<pair<ofPolyline, ofColor>>>();
     
-    container = make_shared<ofxOceanodeContainer>(reg);
+    container = make_shared<ofxOceanodeContainer>(reg, treg);
     canvas.setContainer(container);
     canvas.setup();
     

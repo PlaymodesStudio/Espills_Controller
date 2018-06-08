@@ -10,7 +10,7 @@
 #include "ofxOceanodeContainer.h"
 
 ildaController::ildaController() : ofxOceanodeNodeModelExternalWindow("Ilda Controller"){
-    setup();
+    //setup();
 }
 
 void ildaController::setup(){
@@ -108,11 +108,4 @@ void ildaController::parameterChangedListener(ofAbstractParameter &param){
     //    ildaFrame.params.output.color.b = (float)blueCurve[laserColor.b*255]/255.;
     ildaFrame.params.output.blankCount = blankCount;
     ildaFrame.params.output.endCount = endCount;
-}
-
-ofxOceanodeAbstractConnection* ildaController::createConnectionFromCustomType(ofxOceanodeContainer& c, ofAbstractParameter& source, ofAbstractParameter& sink){
-    if(source.type() == typeid(ofParameter<vector<pair<ofPolyline, ofColor>>>).name()){
-        return c.connectConnection(source.cast<vector<pair<ofPolyline, ofColor>>>(), sink.cast<vector<pair<ofPolyline, ofColor>>>());
-    }
-    return nullptr;
 }
