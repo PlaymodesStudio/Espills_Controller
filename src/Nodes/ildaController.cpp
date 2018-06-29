@@ -14,13 +14,23 @@ ildaController::ildaController() : ofxOceanodeNodeModelExternalWindow("Ilda Cont
 }
 
 void ildaController::setup(){
-    etherdream = new ofxEtherdream();
-    etherdream->setup();
-    etherdream->setPPS(30000);
-    
+    etherdream = nullptr;
     ildaFrame.params.output.transform.scale = glm::vec2(1,1);
     
-    parameters->add(resetConnection.set("Reset Connection", false));
+    parameters->add(identifier.set("Identifier", 0, 0, 1));
+    listeners.push(identifier.newListener([&](int &i){
+        etherdream = new ofxEtherdream();
+        etherdream->setup(true, i);
+        etherdream->setPPS(30000);
+    }));
+    parameters->add(resetConnection.set("Reset Connection"));
+    listeners.push(resetConnection.newListener([&](){
+        etherdream->kill();
+        delete etherdream;
+        etherdream = new ofxEtherdream();
+        etherdream->setup(true, identifier);
+        etherdream->setPPS(pps);
+    }));
     parameters->add(clear.set("Clear", false));
     parameters->add(in1.set("Polylines In1", {make_pair(ofPolyline(), ofColor())}));
     parameters->add(in2.set("Polylines In2", {make_pair(ofPolyline(), ofColor())}));
@@ -72,18 +82,9 @@ void ildaController::parameterChangedListener(ofAbstractParameter &param){
         in4 = {make_pair(ofPolyline(), ofColor())};
 
     }
-    else if(param.getName() == "Reset Connection"){
-        if(resetConnection){
-            resetConnection = false;
-            etherdream->kill();
-            delete etherdream;
-            etherdream = new ofxEtherdream();
-            etherdream->setup();
-            etherdream->setPPS(pps);
-        }
-    }
     else if(param.getName() == "pps"){
-        etherdream->setPPS(param.cast<int>());
+        if(etherdream != nullptr)
+            etherdream->setPPS(param.cast<int>());
     }
     ildaFrame.polyProcessor.params.targetPointCount=pointCount-(blankCount+endCount)*ildaFrame.getPolys().size()*2;
     if (pointCount != 0 && ildaFrame.polyProcessor.params.targetPointCount < 0)
