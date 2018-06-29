@@ -1,17 +1,20 @@
 #include "ofApp.h"
 #include "graphicPatternGenerator.h"
 #include "ildaController.h"
+#include "positionsSaver.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ofSetVerticalSync(true);
+    ofSetVerticalSync(false);
     ofSetFrameRate(60);
     
     auto reg = make_shared<ofxOceanodeNodeRegistry>();
     auto treg = make_shared<ofxOceanodeTypesRegistry>();
     reg->registerModel<graphicPatternGenerator>("ESPILLS");
-    reg->registerModel<ildaController>();
+    reg->registerModel<ildaController>("ESPILLS");
+    reg->registerModel<positionSaver>("ESPILLS");
     treg->registerType<vector<pair<ofPolyline, ofColor>>>();
+    treg->registerType<vector<ofPoint>>();
     
     container = make_shared<ofxOceanodeContainer>(reg, treg);
     canvas.setContainer(container);
