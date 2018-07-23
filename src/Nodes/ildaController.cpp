@@ -17,7 +17,7 @@ void ildaController::setup(){
     etherdream = nullptr;
     ildaFrame.params.output.transform.scale = glm::vec2(1,1);
     
-    parameters->add(identifier.set("Identifier", 0, 0, 1));
+    addOutputParameterToGroupAndInfo(identifier.set("Identifier", 0, 0, 1));
     listeners.push(identifier.newListener([&](int &i){
         etherdream = new ofxEtherdream();
         etherdream->setup(true, i);
@@ -37,8 +37,8 @@ void ildaController::setup(){
     parameters->add(in3.set("Polylines In3", {make_pair(ofPolyline(), ofColor())}));
     parameters->add(in4.set("Polylines In4", {make_pair(ofPolyline(), ofColor())}));
     parameters->add(maxOpacity.set("Max Opacity", 1, 0, 1));
-    parameters->add(pps.set("pps", 30000, 500, 60000));
-    parameters->add(pointCount.set("Point Count", 300, 0, 2500));
+    parameters->add(pps.set("pps", 30000, 500, 100000));
+    parameters->add(pointCount.set("Point Count", 300, 0, 3500));
     parameters->add(minimumPointCount.set("Min Point Count", 1000, 0, 2500));
     parameters->add(smoothing.set("Smooth Amount", 0, 0, 10));
     parameters->add(tolerance.set("Tolerance", 0, 0, 1));

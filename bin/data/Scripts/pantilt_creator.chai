@@ -1,0 +1,26 @@
+
+this.addFloatParameter("In1", 0, 0, 1);
+this.addFloatParameter("In2", 0, 0, 1);
+this.addFloatParameter("In3", 0, 0, 1);
+this.addFloatParameter("In4", 0, 0, 1);
+this.addVectorFloatParameter("Output", [0], [0], [1]);
+
+def listenerFunc(){
+  if(this.getLastChangedParameterName() != "Output"){
+    var vec = [this.getFloatParameter("In1"),
+    this.getFloatParameter("In2"),
+    this.getFloatParameter("In3"),
+    this.getFloatParameter("In4")]
+    this.setVectorFloatParameter("Output", vec);
+  }
+  return true;
+}
+
+def presetLoad(){
+  var vec = [this.getFloatParameter("In1"),
+    this.getFloatParameter("In2"),
+    this.getFloatParameter("In3"),
+    this.getFloatParameter("In4")]
+    this.setVectorFloatParameter("Output", vec);
+  return true;
+}

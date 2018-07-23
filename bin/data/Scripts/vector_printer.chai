@@ -1,0 +1,11 @@
+
+this.addVectorFloatParameter("Input", [0], [0], [1]);
+
+def listenerFunc(){
+  if(this.getLastChangedParameterName() == "Input"){
+    var v = this.getVectorFloatParameter("Input");
+    print(v[0]);
+  }
+  return true;
+}
+

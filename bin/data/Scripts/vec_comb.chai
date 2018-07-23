@@ -1,0 +1,25 @@
+
+this.addVectorFloatParameter("Input1", [0], [0], [1]);
+this.addVectorFloatParameter("Input2", [0], [0], [1]);
+this.addVectorFloatParameter("Amount", [1], [0], [1]);
+this.addVectorFloatParameter("Output", [0], [0], [1]);
+
+def listenerFunc(){
+  if(this.getLastChangedParameterName() == "Input1"){
+    var vec1 = this.getVectorFloatParameter("Input1");
+    var vec2 = this.getVectorFloatParameter("Input2");
+    var amount = this.getVectorFloatParameter("Amount");
+    for (var i = 0; i < vec1.size(); ++i) {
+        if(amount.size() == 1){
+          vec1[i] = vec2[i] + (vec1[i]-0.5) * amount[0];
+        }else if(amount.size() == vec1.size()){
+          vec1[i] = vec2[i] + (vec1[i]-0.5) * amount[i];
+        }else{
+          vec1[i] = vec2[i] + (vec1[i]-0.5);
+        }
+    }
+    this.setVectorFloatParameter("Output", vec1);
+  }
+  return true;
+}
+

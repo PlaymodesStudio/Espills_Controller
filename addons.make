@@ -1,7 +1,9 @@
 ofxArtNet_PM
 ofxDatGui_PM
+ofxEasing
 ofxEtherdream
 ofxIlda
+ofxMidi
 ofxOceanode
 ofxOsc
 ofxSyphon

@@ -1,0 +1,33 @@
+
+this.addVectorFloatParameter("Source", [0], [0], [1]);
+this.addVectorFloatParameter("Modulator", [0.5], [0], [1]);
+this.addVectorFloatParameter("Amount", [1], [0], [1]);
+this.addVectorFloatParameter("Output", [0], [0], [1]);
+
+def listenerFunc(){
+  if(this.getLastChangedParameterName() == "Modulator" || this.getLastChangedParameterName() == "Source"){
+    var source = this.getVectorFloatParameter("Source");
+    var modulator = this.getVectorFloatParameter("Modulator");
+    var amount = this.getVectorFloatParameter("Amount");
+    for (var i = 0; i < source.size(); ++i) {
+        var amountForItem = 1.0;
+        if(amount.size() == 1){
+          amountForItem = amount[0];
+        }else if(amount.size() == source.size()){
+          amountForItem = amount[i];
+        }
+
+        var modulatorForItem = 0.5;
+        if(modulator.size() == 1){
+          modulatorForItem = modulator[0];
+        }else if(amount.size() == source.size()){
+          modulatorForItem = modulator[i];
+        }
+
+
+        source[i] = source[i] + (modulatorForItem-0.5) * amountForItem;
+    }
+    this.setVectorFloatParameter("Output", source);
+  }
+  return true;
+}
