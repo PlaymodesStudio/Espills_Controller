@@ -18,6 +18,13 @@ public:
     
     void setup() override;
     
+    void presetHasLoaded() override{
+        positionToMoveMirrors = positionToMoveMirrors;
+        positionToMoveMirrorsAndStaticMirrors = positionToMoveMirrorsAndStaticMirrors;
+        positionToStaticMirrors = positionToStaticMirrors;
+        positionToCenter = positionToCenter;
+    }
+    
 private:
     
     void savePositionsListener(bool &b);
