@@ -1,0 +1,27 @@
+{
+    "Blue": 1.0,
+    "Color": "255, 255, 255, 255",
+    "Division_Spacing_Vec": 0.5,
+    "Divisions_Vec": 1,
+    "End_Follow_Vec": 1.0,
+    "ExtWindowRect": [
+        656.0,
+        45.0,
+        1024.0,
+        1001.0
+    ],
+    "Green": 1.0,
+    "Jitter_Vec": 0.0,
+    "Modulation_Amount": 0.0,
+    "Num_Vertex": 1,
+    "Offset_Follow_Vec": 0.0,
+    "Opacity_Vec": 1.0,
+    "Point_Modulation": 0.5,
+    "Position_Replicator": "1",
+    "Red": 1.0,
+    "Refollow_In_Vec": 0.0,
+    "Rotation_Vec": 0.0,
+    "Scale_Pos_Vec": 0.909799993038177,
+    "Size_Vec": 0.508800029754639,
+    "To_Center": "0"
+}

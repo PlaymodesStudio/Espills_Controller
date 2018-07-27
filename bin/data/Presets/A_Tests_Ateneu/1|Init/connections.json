@@ -1,0 +1,138 @@
+{
+    "Graphic_Generator_1": {
+        "Output": {
+            "Ilda_Controller_1": {
+                "Polylines In1": null
+            }
+        }
+    },
+    "Graphic_Generator_2": {
+        "Output": {
+            "Ilda_Controller_2": {
+                "Polylines In1": null
+            }
+        }
+    },
+    "Movinghead_Controller_1": {
+        "Output": {
+            "Artnet_Sender_1": {
+                "Input 0": null
+            }
+        }
+    },
+    "Movinghead_Controller_2": {
+        "Output": {
+            "Artnet_Sender_1": {
+                "Input 1": null
+            }
+        }
+    },
+    "Oscillator_Bank_1": {
+        "Oscillator Out": {
+            "Artnet_Sender_1": {
+                "Input 2": null
+            }
+        }
+    },
+    "Oscillator_Bank_2": {
+        "Oscillator Out": {
+            "Artnet_Sender_1": {
+                "Input 3": null
+            }
+        }
+    },
+    "Phasor_1": {
+        "Phasor Output": {
+            "Oscillator_Bank_1": {
+                "Phasor In": null
+            },
+            "Oscillator_Bank_2": {
+                "Phasor In": null
+            }
+        }
+    },
+    "Script_Module_1": {
+        "Output": {
+            "Script_Module_3": {
+                "Source": null
+            }
+        }
+    },
+    "Script_Module_2": {
+        "Output": {
+            "Script_Module_4": {
+                "Source": null
+            }
+        }
+    },
+    "Script_Module_3": {
+        "Output": {
+            "Vector_Preset_Easer_1": {
+                "Input": null
+            }
+        }
+    },
+    "Script_Module_4": {
+        "Output": {
+            "Vector_Preset_Easer_2": {
+                "Input": null
+            }
+        }
+    },
+    "Script_Module_5": {
+        "Output": {
+            "Script_Module_7": {
+                "Source": null
+            }
+        }
+    },
+    "Script_Module_6": {
+        "Output": {
+            "Script_Module_8": {
+                "Source": null
+            }
+        }
+    },
+    "Script_Module_7": {
+        "Output": {
+            "Vector_Preset_Easer_3": {
+                "Input": null
+            }
+        }
+    },
+    "Script_Module_8": {
+        "Output": {
+            "Vector_Preset_Easer_4": {
+                "Input": null
+            }
+        }
+    },
+    "Vector_Preset_Easer_1": {
+        "Output": {
+            "Movinghead_Controller_1": {
+                "Pan": null
+            }
+        }
+    },
+    "Vector_Preset_Easer_2": {
+        "Output": {
+            "Movinghead_Controller_1": {
+                "Tilt": null
+            }
+        }
+    },
+    "Vector_Preset_Easer_3": {
+        "Output": {
+            "Movinghead_Controller_2": {
+                "Pan": null
+            }
+        }
+    },
+    "Vector_Preset_Easer_4": {
+        "Output": {
+            "Movinghead_Controller_2": {
+                "Tilt": null
+            }
+        }
+    }
+}
