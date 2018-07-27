@@ -48,10 +48,16 @@ private:
         }
     }
     
+    void rgbChanged(vector<float> &f);
+    
+    ofEventListeners listeners;
     
     ofParameter<vector<ofPoint>> positions;
     ofParameter<int>    positionReplicator;
     ofParameter<ofColor> color;
+    ofParameter<vector<float>> color_red;
+    ofParameter<vector<float>> color_green;
+    ofParameter<vector<float>> color_blue;
     ofParameter<bool> toCenterFigure;
     
     ofParameter<vector<int>>   numVertex;
@@ -60,6 +66,8 @@ private:
     ofParameter<vector<float>> size;
     ofParameter<vector<float>> rotation;
     ofParameter<vector<float>> jitter;
+    ofParameter<vector<float>> pointModulation;
+    ofParameter<vector<float>> modulationAmount;
     ofParameter<vector<float>>  refollowIn;
     ofParameter<vector<float>>  endFollow;
     ofParameter<vector<float>>  offsetFollow;

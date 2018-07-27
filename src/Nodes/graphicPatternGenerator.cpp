@@ -17,6 +17,9 @@ void graphicPatternGenerator::setup(){
     parameters->add(positionReplicator.set("Position Replicator", 1, 1, 10));
     lastPositionReplicator = positionReplicator;
     parameters->add(color.set("Color", ofColor::red, ofColor::white, ofColor::black));
+    parameters->add(color_red.set("Red", {1}, {0}, {1}));
+    parameters->add(color_green.set("Green", {1}, {0}, {1}));
+    parameters->add(color_blue.set("Blue", {1}, {0}, {1}));
     parameters->add(toCenterFigure.set("To Center", false));
     
     parameters->add(numVertex.set("Num Vertex", {1}, {1}, {100}));
@@ -25,28 +28,37 @@ void graphicPatternGenerator::setup(){
     parameters->add(size.set("Size Vec", {0.5}, {0}, {1}));
     parameters->add(rotation.set("Rotation Vec", {0}, {0}, {1}));
     parameters->add(jitter.set("Jitter Vec", {0}, {0}, {1}));
+    parameters->add(pointModulation.set("Point Modulation", {0.5}, {0}, {1}));
+    parameters->add(modulationAmount.set("Modulation Amount", {0}, {0}, {1}));
     parameters->add(refollowIn.set("Refollow In Vec", {0}, {0}, {1}));
     parameters->add(endFollow.set("End Follow Vec", {1}, {0}, {1}));
     parameters->add(offsetFollow.set("Offset Follow Vec", {0}, {0}, {1}));
     parameters->add(divisions.set("Divisions Vec", {0}, {0}, {14}));
     parameters->add(divisionSpacing.set("Division Spacing Vec", {0.5}, {0}, {1}));
     
-    
-    
     parameters->add(polyLinesOut.set("Output", {make_pair(ofPolyline(), ofColor())}));
     
     ofAddListener(parameters->parameterChangedE(), this, &graphicPatternGenerator::parameterChangedListener);
     positions = positions;
+    
+    listeners.push(color_red.newListener(this, &graphicPatternGenerator::rgbChanged));
+    listeners.push(color_green.newListener(this, &graphicPatternGenerator::rgbChanged));
+    listeners.push(color_blue.newListener(this, &graphicPatternGenerator::rgbChanged));
     
     someParameterChanged = true;
     
     pointDraggingIndex = -1;
 }
 
+void graphicPatternGenerator::rgbChanged(vector<float> &f){
+    color = ofFloatColor(color_red.get()[0], color_green.get()[0], color_blue.get()[0]);
+}
+
 vector<pair<ofPolyline, ofColor>> graphicPatternGenerator::computePolylines(){
     vector<pair<ofPolyline, ofColor>> coloredPolylines;
     if(true){
         for(int i = 0 ; i < positions.get().size() * positionReplicator; i++){
+            ofFloatColor polyColor = ofFloatColor(getParameterValueForPosition(color_red, i), getParameterValueForPosition(color_green, i), getParameterValueForPosition(color_blue, i));
             ofPolyline unitPoly;
             ofPoint position;
             float scaleValue = getParameterValueForPosition(scalePositions, i);
@@ -80,11 +92,11 @@ vector<pair<ofPolyline, ofColor>> graphicPatternGenerator::computePolylines(){
                     }
                 }
                 unitPoly.close();
-                unitPoly = unitPoly.getResampledByCount(200);
             }
             
             
             if(getParameterValueForPosition(divisions, i) != 0){
+                unitPoly = unitPoly.getResampledByCount(200);
                 vector<glm::vec3> polyVertex = unitPoly.getVertices();
                 unitPoly.clear();
                 int polySize = polyVertex.size();
@@ -98,10 +110,20 @@ vector<pair<ofPolyline, ofColor>> graphicPatternGenerator::computePolylines(){
                         jj = jj % polySize;
                         tempPoly.addVertex(polyVertex[jj]);
                     }
-                    coloredPolylines.push_back(make_pair(tempPoly, color.get() * getParameterValueForPosition(opacity, i)));
+                    coloredPolylines.push_back(make_pair(tempPoly, polyColor * getParameterValueForPosition(opacity, i)));
                 }
             }else{
-                coloredPolylines.push_back(make_pair(unitPoly, color.get() * getParameterValueForPosition(opacity, i)));
+                if(numVertex.get().size() == 1 && numVertex.get()[0] != 1 && getParameterValueForPosition(modulationAmount, i) != 0){
+                    int modulationSize = (pointModulation.get().size() / positions.get().size()) / positionReplicator;
+                    if(modulationSize >= numVertex.get()[0]+1){
+                        unitPoly = unitPoly.getResampledByCount(modulationSize);
+                        for(int j = 0; j < modulationSize; j++){
+                            auto &poly = unitPoly.getVertices()[j];
+                            poly = poly + (glm::normalize(poly - toGlm(position)) * ((pointModulation.get()[(i*modulationSize) + j]-0.5) * getParameterValueForPosition(modulationAmount, i) * getParameterValueForPosition(size, i)));
+                        }
+                    }
+                }
+                coloredPolylines.push_back(make_pair(unitPoly, polyColor * getParameterValueForPosition(opacity, i)));
             }
         }
     }
@@ -112,7 +134,6 @@ vector<pair<ofPolyline, ofColor>> graphicPatternGenerator::computePolylines(){
 
 void graphicPatternGenerator::parameterChangedListener(ofAbstractParameter &parameter){
     someParameterChanged = true;
-
 }
 
 
