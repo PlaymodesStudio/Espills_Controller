@@ -12,8 +12,8 @@ delta::delta() : ofxOceanodeNodeModel("Delta"){
     parameters->add(gain.set("Gain", 1, 0, 100));
     parameters->add(invert.set("Invert", false));
     parameters->add(smooth.set("Smooth", 0, 0, 1));
-    parameters->add(input.set("Input", {}));
-    parameters->add(output.set("Output", {}));
+    parameters->add(input.set("Input", {0}, {0}, {1}));
+    parameters->add(output.set("Output", {0}, {0}, {1}));
 
     listener = input.newListener(this, &delta::computeOutput);
 }
