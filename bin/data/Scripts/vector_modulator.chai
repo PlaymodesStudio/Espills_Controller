@@ -20,7 +20,7 @@ def listenerFunc(){
         var modulatorForItem = 0.5;
         if(modulator.size() == 1){
           modulatorForItem = modulator[0];
-        }else if(amount.size() == source.size()){
+        }else if(modulator.size() == source.size()){
           modulatorForItem = modulator[i];
         }
 
