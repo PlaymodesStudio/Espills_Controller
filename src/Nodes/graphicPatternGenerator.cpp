@@ -20,12 +20,11 @@ void graphicPatternGenerator::setup(){
     parameters->add(color_red.set("Red", {1}, {0}, {1}));
     parameters->add(color_green.set("Green", {1}, {0}, {1}));
     parameters->add(color_blue.set("Blue", {1}, {0}, {1}));
-    parameters->add(toCenterFigure.set("To Center", false));
-    
     parameters->add(numVertex.set("Num Vertex", {1}, {1}, {100}));
+    parameters->add(toCenterFigure.set("To Center", 0, 0, 1));
     parameters->add(scalePositions.set("Scale Pos Vec", {1}, {0}, {1.1}));
     parameters->add(opacity.set("Opacity Vec", {1}, {0}, {1}));
-    parameters->add(size.set("Size Vec", {0.5}, {0}, {1}));
+    parameters->add(size.set("Size Vec", {0.5}, {0}, {1.5}));
     parameters->add(rotation.set("Rotation Vec", {0}, {0}, {1}));
     parameters->add(jitter.set("Jitter Vec", {0}, {0}, {1}));
     parameters->add(pointModulation.set("Point Modulation", {0.5}, {0}, {1}));
@@ -76,20 +75,34 @@ vector<pair<ofPolyline, ofColor>> graphicPatternGenerator::computePolylines(){
                 unitPoly.addVertex(positionWithJitter - ofPoint(0.0001, 0));
                 unitPoly.addVertex(positionWithJitter + ofPoint(0, 0.0001));
             }else{
+                ofPoint firstCreatedPoint = ofPoint(-100, -100);
+                ofPoint lastCreatedVertex = ofPoint(-100, -100);
+                ofPoint newVertex;
+                int counter = 0;
                 for(float j = 0 ; j < 1 ; j = j + (1.0/(float)getParameterValueForPosition(numVertex, i))){
                     float jj = j + getParameterValueForPosition(rotation, i);
-                    ofPoint newVertex;
+                    
                     newVertex.x = (sin(jj*2*PI)*getParameterValueForPosition(size, i)/2)+position.x;
                     newVertex.y = (cos(jj*2*PI)*getParameterValueForPosition(size, i)/2)+position.y;
-                    //float jitterValue = getParameterValueForPosition(jitter, i);
                     if(jitterValue != 0){
                         newVertex.x = newVertex.x + ofRandom(-jitterValue*0.05, + jitterValue*0.05);
                         newVertex.y = newVertex.y + ofRandom(-jitterValue*0.05, + jitterValue*0.05);
                     }
-                    unitPoly.addVertex(newVertex);
-                    if(toCenterFigure){
-                        unitPoly.addVertex(positionWithJitter);
+                    if(lastCreatedVertex != ofPoint(-100, -100) && toCenterFigure != 0){
+                        ofPoint middleVertex = (newVertex+lastCreatedVertex) / 2;
+                        ofPoint toCenterPoint = (middleVertex * (1 - toCenterFigure)) + (position * toCenterFigure);
+                        unitPoly.addVertex(toCenterPoint);
                     }
+                    unitPoly.addVertex(newVertex);
+                    lastCreatedVertex = newVertex;
+                    if(firstCreatedPoint == ofPoint(-100, -100)){
+                        firstCreatedPoint = newVertex;
+                    }
+                }
+                if(toCenterFigure != 0){
+                    ofPoint middleVertex = (newVertex+firstCreatedPoint) / 2;
+                    ofPoint toCenterPoint = (middleVertex * (1 - toCenterFigure)) + (position * toCenterFigure);
+                    unitPoly.addVertex(toCenterPoint);
                 }
                 unitPoly.close();
             }

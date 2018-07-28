@@ -58,7 +58,7 @@ private:
     ofParameter<vector<float>> color_red;
     ofParameter<vector<float>> color_green;
     ofParameter<vector<float>> color_blue;
-    ofParameter<bool> toCenterFigure;
+    ofParameter<float> toCenterFigure;
     
     ofParameter<vector<int>>   numVertex;
     ofParameter<vector<float>> scalePositions;
