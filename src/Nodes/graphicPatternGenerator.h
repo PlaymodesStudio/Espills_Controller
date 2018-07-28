@@ -19,6 +19,27 @@ public:
     
     void setup() override;
     
+    virtual void presetSave(ofJson &json) override{
+        string positionsStr;
+        for(ofPoint p : positions.get()){
+            positionsStr += ofToString(p) + "_|_";
+        }
+        positionsStr.erase(positionsStr.end()-3, positionsStr.end());
+        json["Position_points"] = positionsStr;
+    }
+    
+    virtual void presetRecallBeforeSettingParameters(ofJson &json) override{
+        if(json.count("Position_points") == 1){
+            vector<string> positionsStrVec = ofSplitString(json["Position_points"], "_|_");
+            vector<ofPoint> newPositions;
+            newPositions.resize(positionsStrVec.size());
+            for(int i = 0; i < newPositions.size(); i++){
+                newPositions[i] = ofFromString<ofPoint>(positionsStrVec[i]);
+            }
+            positions = newPositions;
+        }
+    }
+    
     void update(ofEventArgs &a) override {computePolylines();};
     
     void draw();

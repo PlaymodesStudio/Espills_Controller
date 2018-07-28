@@ -61,8 +61,8 @@ vector<pair<ofPolyline, ofColor>> graphicPatternGenerator::computePolylines(){
             ofPolyline unitPoly;
             ofPoint position;
             float scaleValue = getParameterValueForPosition(scalePositions, i);
-            position.x = ofMap(scaleValue, 0.0, 1.0, 0.5, positions.get()[floor(i / positionReplicator)].x);
-            position.y = ofMap(scaleValue, 0.0, 1.0, 0.5, positions.get()[floor(i / positionReplicator)].y);
+            position.x = ofMap(scaleValue, 0.0, 1.0, 0.5, positions.get()[fmod(i, positions.get().size())].x);
+            position.y = ofMap(scaleValue, 0.0, 1.0, 0.5, positions.get()[fmod(i, positions.get().size())].y);
             ofPoint positionWithJitter = position;
             float jitterValue = getParameterValueForPosition(jitter, i);
             if(jitterValue != 0){
