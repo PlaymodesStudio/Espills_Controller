@@ -16,6 +16,7 @@
 #include "envelopeGenerator.h"
 #include "audioEngineController.h"
 #include "delta.h"
+#include "pantiltEditor.h"
 
 #include "ofxOceanodeBPMController.h"
 
@@ -34,7 +35,7 @@ void ofApp::setup(){
     reg->registerModel<oscillatorTexture>("Texture");
     reg->registerModel<waveScope>("Texture");
     reg->registerModel<scriptModule>("Scripting");
-    reg->registerModel<movingheadController>("Controller");
+    reg->registerModel<movingheadController>("Mirrors");
     reg->registerModel<textureReader>("Texture");
     reg->registerModel<artnetSender>("ArtNet");
     reg->registerModel<vectorPresetEaser>("EASER");
@@ -43,6 +44,7 @@ void ofApp::setup(){
     reg->registerModel<envelopeGenerator>("Midi");
     reg->registerModel<audioEngineController>("OSC");
     reg->registerModel<delta>("OP");
+    reg->registerModel<panTiltEditor>("Mirrors");
     
     registerVectorOp(reg);
     treg->registerType<vector<pair<ofPolyline, ofColor>>>();

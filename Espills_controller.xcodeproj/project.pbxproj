@@ -68,6 +68,7 @@
 		9BD777923C7E370A961526AC /* envelopeGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4655B54F461ED6D3FD64F179 /* envelopeGenerator.cpp */; };
 		9F358FED2100A4AE00E39A4A /* audioEngineController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F358FEB2100A4AE00E39A4A /* audioEngineController.cpp */; };
 		9F358FF02100DF2C00E39A4A /* delta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F358FEE2100DF2C00E39A4A /* delta.cpp */; };
+		9F5453E7210F70A700F9527F /* pantiltEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F5453E5210F70A700F9527F /* pantiltEditor.cpp */; };
 		9FB8AE6ABDA40CD0274A29BA /* oscillatorTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */; };
 		AA12BB979460264F7478443E /* valueEaser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D00378236FD73D5D8CF8C990 /* valueEaser.cpp */; };
 		ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADD194746185E2DA11468377 /* IpEndpointName.cpp */; };
@@ -298,6 +299,8 @@
 		9F358FEC2100A4AE00E39A4A /* audioEngineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioEngineController.h; sourceTree = "<group>"; };
 		9F358FEE2100DF2C00E39A4A /* delta.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = delta.cpp; sourceTree = "<group>"; };
 		9F358FEF2100DF2C00E39A4A /* delta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = delta.h; sourceTree = "<group>"; };
+		9F5453E5210F70A700F9527F /* pantiltEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pantiltEditor.cpp; sourceTree = "<group>"; };
+		9F5453E6210F70A700F9527F /* pantiltEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pantiltEditor.h; sourceTree = "<group>"; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
 		9FA2A0B2E964C498EBE3ACF4 /* oscillatorFragShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = oscillatorFragShader.h; path = "src/ofxOceanode_modules-texture/oscillatorFragShader.h"; sourceTree = SOURCE_ROOT; };
 		A13853A1B21F20177F44EE37 /* ofxDatGuiLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiLabel.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiLabel.h; sourceTree = SOURCE_ROOT; };
@@ -1141,6 +1144,8 @@
 				4382BD5A2B98C2963EC37A49 /* valueEaser.h */,
 				6CBB46E53582EAD6ECF0576C /* vectorPresetEaser.cpp */,
 				F59D07ED95E052917EB11E47 /* vectorPresetEaser.h */,
+				9F5453E5210F70A700F9527F /* pantiltEditor.cpp */,
+				9F5453E6210F70A700F9527F /* pantiltEditor.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1364,6 +1369,7 @@
 				BE2CEB38B94EFF1BB2D599AD /* ofxArtNetNodeEntry.cpp in Sources */,
 				4A49D5B6E4CB67A97FD7BAE0 /* artnet.c in Sources */,
 				723D9A873147B54BE80DE89C /* misc.c in Sources */,
+				9F5453E7210F70A700F9527F /* pantiltEditor.cpp in Sources */,
 				AFA770E077C98B68898648B2 /* network.c in Sources */,
 				5F7B2A57AA22B794398838C9 /* receive.c in Sources */,
 				73A331658DDC9C473AB11C44 /* tod.c in Sources */,
