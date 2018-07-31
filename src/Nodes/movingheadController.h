@@ -19,6 +19,7 @@ public:
     
 private:
     //ofParameter<string> filename;
+    ofParameter<float> fixture;
     ofParameter<vector<float>> pan;
     ofParameter<vector<float>> tilt;
     ofParameter<vector<float>> output;
