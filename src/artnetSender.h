@@ -71,7 +71,7 @@ public:
 //            ifNewCreatedChecker[maxIndex] = false;
 //        }
         
-            if(json.count("outputNode") == 1){
+            if(json.count("outputNode") == 1){ 
                 vector<string> outputNode = json["outputNode"];
                 for(auto input : inputMap){
                     ptrdiff_t pos = find(nodeOptions.begin(), nodeOptions.end(), outputNode[input.first]) - nodeOptions.begin();
@@ -80,7 +80,12 @@ public:
                     }
                 }
             }
-
+    }
+        
+    virtual void presetRecallAfterSettingParameters(ofJson &json) override{
+        for(auto input : inputMap){
+            input.second = {-1};
+        }
     }
     
 private:
