@@ -18,6 +18,11 @@ class panTiltEditor : public ofxOceanodeNodeModelLocalPreset{
     
     void setup() override;
     
+    void presetHasLoaded() override{
+        panOutput = panOutput;
+        tiltOutput = tiltOutput;
+    }
+    
 private:
     void computePans();
     void computeTilts();

@@ -26,17 +26,21 @@ void panTiltEditor::setup(){
     addOutputParameterToGroupAndInfo(tiltOutput.set("Tilt Output", {.5}, {0}, {1}));
     
     listeners.push(panOutput.newListener([this](vector<float> &vf){
-        for(auto &f : pans){
-            f = vf[0];
+        if(vf.size() == 1){
+            for(auto &f : pans){
+                f = vf[0];
+            }
+            computePans();
         }
-        computePans();
     }));
     
     listeners.push(tiltOutput.newListener([this](vector<float> &vf){
-        for(auto &f : tilts){
-            f = vf[0];
+        if(vf.size() == 1){
+            for(auto &f : tilts){
+                f = vf[0];
+            }
+            computeTilts();
         }
-        computeTilts();
     }));
     
     computePans();
