@@ -17,6 +17,7 @@
 #include "audioEngineController.h"
 #include "delta.h"
 #include "pantiltEditor.h"
+#include "vectorItemOperations.h"
 
 #include "ofxOceanodeBPMController.h"
 
@@ -45,6 +46,7 @@ void ofApp::setup(){
     reg->registerModel<audioEngineController>("OSC");
     reg->registerModel<delta>("OP");
     reg->registerModel<panTiltEditor>("Mirrors");
+    reg->registerModel<vectorItemOperations>("OP");
     
     registerVectorOp(reg);
     treg->registerType<vector<pair<ofPolyline, ofColor>>>();
