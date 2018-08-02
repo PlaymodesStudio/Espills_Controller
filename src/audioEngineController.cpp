@@ -18,7 +18,7 @@ audioEngineController::audioEngineController() : ofxOceanodeNodeModel("Audio Con
         parameters->add(params.back().set("param_" + ofToString(i), {0}, {0}, {1}));
         listeners.push(params.back().newListener([this, i](vector<float> &vf){
             ofxOscMessage message;
-            message.setAddress("audio/" + ofToString(i));
+            message.setAddress("/audio/" + ofToString(i));
             for(auto f : vf){
                 message.addFloatArg(f);
             }
