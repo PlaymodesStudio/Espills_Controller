@@ -67,6 +67,7 @@
 		9BD777923C7E370A961526AC /* envelopeGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4655B54F461ED6D3FD64F179 /* envelopeGenerator.cpp */; };
 		9F358FED2100A4AE00E39A4A /* audioEngineController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F358FEB2100A4AE00E39A4A /* audioEngineController.cpp */; };
 		9F358FF02100DF2C00E39A4A /* delta.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F358FEE2100DF2C00E39A4A /* delta.cpp */; };
+		9F4A814E2123239900BEB6FC /* strobeLightController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F4A814C2123239900BEB6FC /* strobeLightController.cpp */; };
 		9F5453E7210F70A700F9527F /* pantiltEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F5453E5210F70A700F9527F /* pantiltEditor.cpp */; };
 		9F9F323721135B3100D9D7F2 /* artnetSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F323621135B3100D9D7F2 /* artnetSender.cpp */; };
 		9FB8AE6ABDA40CD0274A29BA /* oscillatorTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 123BA4F448ED422A2D4B94DC /* oscillatorTexture.cpp */; };
@@ -299,6 +300,8 @@
 		9F358FEC2100A4AE00E39A4A /* audioEngineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audioEngineController.h; sourceTree = "<group>"; };
 		9F358FEE2100DF2C00E39A4A /* delta.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = delta.cpp; sourceTree = "<group>"; };
 		9F358FEF2100DF2C00E39A4A /* delta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = delta.h; sourceTree = "<group>"; };
+		9F4A814C2123239900BEB6FC /* strobeLightController.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = strobeLightController.cpp; sourceTree = "<group>"; };
+		9F4A814D2123239900BEB6FC /* strobeLightController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = strobeLightController.h; sourceTree = "<group>"; };
 		9F5453E5210F70A700F9527F /* pantiltEditor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pantiltEditor.cpp; sourceTree = "<group>"; };
 		9F5453E6210F70A700F9527F /* pantiltEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pantiltEditor.h; sourceTree = "<group>"; };
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
@@ -1143,6 +1146,8 @@
 				9F5453E6210F70A700F9527F /* pantiltEditor.h */,
 				9FD12B7A211206C500233D92 /* vectorItemOperations.cpp */,
 				9FD12B7B211206C500233D92 /* vectorItemOperations.h */,
+				9F4A814C2123239900BEB6FC /* strobeLightController.cpp */,
+				9F4A814D2123239900BEB6FC /* strobeLightController.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1411,6 +1416,7 @@
 				E1E0C08A53EAFC4A088F5BDC /* reindexer.cpp in Sources */,
 				BDE21E02C646BD31BEC13891 /* smoother.cpp in Sources */,
 				4C8024D8DD46223D43C514C0 /* ofxOceanodeNode.cpp in Sources */,
+				9F4A814E2123239900BEB6FC /* strobeLightController.cpp in Sources */,
 				8EB5677652296BACF3A1C184 /* ofxOceanodeNodeGui.cpp in Sources */,
 				4F63EFF3BAACF2B19051E336 /* ofxOceanodeNodeModel.cpp in Sources */,
 				9F358FED2100A4AE00E39A4A /* audioEngineController.cpp in Sources */,
