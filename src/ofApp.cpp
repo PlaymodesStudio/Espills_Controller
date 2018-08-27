@@ -19,6 +19,7 @@
 #include "pantiltEditor.h"
 #include "vectorItemOperations.h"
 #include "positionsCreator.h"
+#include "strobeLightController.h"
 
 #include "ofxOceanodeBPMController.h"
 
@@ -49,6 +50,7 @@ void ofApp::setup(){
     reg->registerModel<panTiltEditor>("Mirrors");
     reg->registerModel<vectorItemOperations>("OP");
     reg->registerModel<positionsCreator>("ESPILLS");
+    reg->registerModel<strobeLightController>("ELANS");
     
     registerVectorOp(reg);
     treg->registerType<vector<pair<ofPolyline, ofColor>>>();

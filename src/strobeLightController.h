@@ -16,14 +16,20 @@ public:
     ~strobeLightController(){};
     
     void setup() override;
+    void update(ofEventArgs &e) override;
     
 private:
-    ofParameter<float> fader;
-    ofParameter<float> red;
-    ofParameter<float> green;
-    ofParameter<float> blue;
-    ofParameter<float> strobeRate;
-    ofParameter<float> strobeWidth;
+    
+    ofParameter<int> numElements;
+    ofParameter<vector<float>> red;
+    ofParameter<vector<float>> green;
+    ofParameter<vector<float>> blue;
+    ofParameter<vector<float>> saturate;
+    ofParameter<vector<float>> fader;
+    ofParameter<float> masterFader;
+    ofParameter<vector<float>> strobeRate;
+    ofParameter<vector<float>> strobeWidth;
+    ofParameter<vector<float>> output;
     
 };
 
