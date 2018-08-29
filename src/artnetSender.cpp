@@ -89,7 +89,9 @@ void artnetSender::inputListener(int index){
 //        ofNotifyEvent(parameterGroupChanged);
 //    }else
     if(inputMap[index].get()[0] != -1){
-        unsigned char data[inputMap[index].get().size()];
+//        unsigned char data[inputMap[index].get().size()];
+        vector<unsigned char> data;
+        data.resize(255, 0);
         for(int i = 0; i < inputMap[index].get().size(); i++){
             data[i] = inputMap[index].get()[i]  * 255;
         }
@@ -97,7 +99,7 @@ void artnetSender::inputListener(int index){
         //Unicast
         if(universeMap[index] != 0 && universeMap[index] < nodeOptionStructs.size()){
             nodeOptionStruct option = nodeOptionStructs[universeMap[index]-1];
-            artnet.sendDmx_by_SU(0, option.subnet, option.universe, option.ip.data(), data, 512);
+            artnet.sendDmx_by_SU(0, option.subnet, option.universe, option.ip.data(), data.data(), 512);
         }
     }else if(isPoll){
         for(int i = 0 ; parameters->contains("Output " + ofToString(i) + " Selector"); i++){
