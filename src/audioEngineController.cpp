@@ -39,7 +39,7 @@ void audioEngineController::oscHostAndPortListener(string &s){
 
 void audioEngineController::presetNumSender(int &i){
     ofxOscMessage message;
-    message.setAddress("audio/preset");
+    message.setAddress("/audio/preset");
     message.addIntArg(i);
     oscSender.sendMessage(message);
 }
