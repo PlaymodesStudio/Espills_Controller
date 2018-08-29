@@ -20,6 +20,7 @@
 #include "vectorItemOperations.h"
 #include "positionsCreator.h"
 #include "strobeLightController.h"
+#include "positionsRotator.h"
 
 #include "ofxOceanodeBPMController.h"
 
@@ -51,6 +52,7 @@ void ofApp::setup(){
     reg->registerModel<vectorItemOperations>("OP");
     reg->registerModel<positionsCreator>("ESPILLS");
     reg->registerModel<strobeLightController>("ELANS");
+    reg->registerModel<positionsRotator>("ESPILLS");
     
     registerVectorOp(reg);
     treg->registerType<vector<pair<ofPolyline, ofColor>>>();

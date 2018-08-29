@@ -311,6 +311,7 @@
 		9F9F323521135B3100D9D7F2 /* artnetSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = artnetSender.h; sourceTree = "<group>"; };
 		9F9F323621135B3100D9D7F2 /* artnetSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = artnetSender.cpp; sourceTree = "<group>"; };
 		9FA2A0B2E964C498EBE3ACF4 /* oscillatorFragShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = oscillatorFragShader.h; path = "src/ofxOceanode_modules-texture/oscillatorFragShader.h"; sourceTree = SOURCE_ROOT; };
+		9FADA56621359FC000C3E6AF /* positionsRotator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = positionsRotator.h; sourceTree = "<group>"; };
 		9FD12B7A211206C500233D92 /* vectorItemOperations.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = vectorItemOperations.cpp; sourceTree = "<group>"; };
 		9FD12B7B211206C500233D92 /* vectorItemOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vectorItemOperations.h; sourceTree = "<group>"; };
 		A13853A1B21F20177F44EE37 /* ofxDatGuiLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiLabel.h; path = ../../../addons/ofxDatGui_PM/src/components/ofxDatGuiLabel.h; sourceTree = SOURCE_ROOT; };
@@ -1153,6 +1154,7 @@
 				9FD12B7B211206C500233D92 /* vectorItemOperations.h */,
 				9F59D5EE2125E8B500EB524B /* positionsCreator.cpp */,
 				9F59D5EF2125E8B500EB524B /* positionsCreator.h */,
+				9FADA56621359FC000C3E6AF /* positionsRotator.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
