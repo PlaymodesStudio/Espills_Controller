@@ -21,6 +21,7 @@
 #include "positionsCreator.h"
 #include "strobeLightController.h"
 #include "positionsRotator.h"
+#include "vectorModulator.h"
 
 #include "ofxOceanodeBPMController.h"
 
@@ -53,6 +54,7 @@ void ofApp::setup(){
     reg->registerModel<positionsCreator>("ESPILLS");
     reg->registerModel<strobeLightController>("ELANS");
     reg->registerModel<positionsRotator>("ESPILLS");
+    reg->registerModel<vectorModulator>("Mirrors");
     
     registerVectorOp(reg);
     treg->registerType<vector<pair<ofPolyline, ofColor>>>();

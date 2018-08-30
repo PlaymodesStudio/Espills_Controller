@@ -308,6 +308,7 @@
 		9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscSender.h; path = ../../../addons/ofxOsc/src/ofxOscSender.h; sourceTree = SOURCE_ROOT; };
 		9F7A661821340AB40091AECD /* strobeLightController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = strobeLightController.cpp; sourceTree = "<group>"; };
 		9F7A661921340AB40091AECD /* strobeLightController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strobeLightController.h; sourceTree = "<group>"; };
+		9F8F292921383368001ED3C6 /* vectorModulator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vectorModulator.h; sourceTree = "<group>"; };
 		9F9F323521135B3100D9D7F2 /* artnetSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = artnetSender.h; sourceTree = "<group>"; };
 		9F9F323621135B3100D9D7F2 /* artnetSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = artnetSender.cpp; sourceTree = "<group>"; };
 		9FA2A0B2E964C498EBE3ACF4 /* oscillatorFragShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = oscillatorFragShader.h; path = "src/ofxOceanode_modules-texture/oscillatorFragShader.h"; sourceTree = SOURCE_ROOT; };
@@ -1155,6 +1156,7 @@
 				9F59D5EE2125E8B500EB524B /* positionsCreator.cpp */,
 				9F59D5EF2125E8B500EB524B /* positionsCreator.h */,
 				9FADA56621359FC000C3E6AF /* positionsRotator.h */,
+				9F8F292921383368001ED3C6 /* vectorModulator.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
