@@ -79,7 +79,13 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    if(ofGetKeyPressed(OF_KEY_COMMAND)){
+        if(key == 'c'){
+            container->collapseGuis();
+        }else if(key == 'e'){
+            container->expandGuis();
+        }
+    }
 }
 
 //--------------------------------------------------------------
