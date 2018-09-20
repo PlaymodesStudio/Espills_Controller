@@ -45,8 +45,8 @@ void ildaController::setup(){
     parameters->add(doSpacing.set("Do Spacing", true));
     parameters->add(blankCount.set("Blank Count", 25, 0, 60));
     parameters->add(endCount.set("End Count", 25, 0, 60));
-    addParameterToGroupAndInfo(flipX.set("Flip X", false)).isSavePreset = false;
-    addParameterToGroupAndInfo(flipY.set("Flip Y", false)).isSavePreset = false;
+    addParameterToGroupAndInfo(flipX.set("Flip X", false));
+    addParameterToGroupAndInfo(flipY.set("Flip Y", false));
 //    parameters->add(offset.set("Offset", ofPoint(0,0), ofPoint(-1, 1), ofPoint(-1, 1)));
 //    parameters->add(scale.set("Scale", ofPoint(1, 1), ofPoint(0,0), ofPoint(1, 1)));
     
@@ -104,7 +104,7 @@ void ildaController::parameterChangedListener(ofAbstractParameter &param){
     ildaFrame.params.output.transform.doFlipY = flipY;
     ildaFrame.params.output.doCapX = capX;
     ildaFrame.params.output.doCapY = capY;
-    ildaFrame.params.output.color = laserColor.get();
+    //ildaFrame.params.output.color = laserColor.get();
     
     //    ildaFrame.params.output.color.r = (float)redCurve[laserColor.r*255]/255.;
     //    ildaFrame.params.output.color.g = (float)greenCurve[laserColor.g*255]/255.;
