@@ -109,7 +109,7 @@ void ildaController::parameterChangedListener(ofAbstractParameter &param){
     ildaFrame.params.output.transform.doFlipY = flipY;
     ildaFrame.params.output.doCapX = capX;
     ildaFrame.params.output.doCapY = capY;
-    ildaFrame.params.output.color = laserColor.get();
+    //ildaFrame.params.output.color = laserColor.get();
     
     //    ildaFrame.params.output.color.r = (float)redCurve[laserColor.r*255]/255.;
     //    ildaFrame.params.output.color.g = (float)greenCurve[laserColor.g*255]/255.;
