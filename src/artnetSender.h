@@ -30,11 +30,13 @@ public:
 //        vector<int> indexs;
 //        for(auto param : universeMap) indexs.push_back(param.first);
 //        json["Inputs"] = indexs;
-        
         vector<string> outputNode;
         outputNode.resize(inputMap.size());
         for(auto param : universeMap){
-            outputNode[param.first] = nodeOptions[param.second];
+            if(nodeOptions.size() < param.second)
+                outputNode[param.first] = nodeOptions[param.second];
+            else
+                outputNode[param.first] = "None";
         }
         json["outputNode"] = outputNode;
     }
