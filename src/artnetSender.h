@@ -32,8 +32,8 @@ public:
 //        json["Inputs"] = indexs;
         vector<string> outputNode;
         outputNode.resize(inputMap.size());
-        for(auto param : universeMap){
-            if(nodeOptions.size() < param.second)
+        for(auto &param : universeMap){
+            if(param.second < nodeOptions.size())
                 outputNode[param.first] = nodeOptions[param.second];
             else
                 outputNode[param.first] = "None";
