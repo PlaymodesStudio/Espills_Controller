@@ -14,22 +14,25 @@ delta::delta() : ofxOceanodeNodeModel("Delta"){
     parameters->add(smooth.set("Smooth", 0, 0, 1));
     parameters->add(input.set("Input", {0}, {0}, {1}));
     parameters->add(output.set("Output", {0}, {0}, {1}));
+    
+    inputStore = {0};
+    outputStore = {0};
 
     listener = input.newListener(this, &delta::computeOutput);
 }
 
 void delta::computeOutput(vector<float> &in){
-    if(outputStore.size() != in.size()){
-        outputStore.resize(in.size(), 0);
+    if(outputStore.size() != input->size()){
+        outputStore.resize(input->size(), 0);
     }
-    if(inputStore.size() != in.size()){
-        inputStore = in;
+    if(inputStore.size() != input->size()){
+        inputStore = input;
     }
     else{
         vector<float> tempOut;
-        tempOut.resize(in.size(), 0);
-        for(int i = 0; i < in.size(); i++){
-            tempOut[i] = abs(in[i]-inputStore[i])*gain;
+        tempOut.resize(input->size(), 0);
+        for(int i = 0; i < input->size(); i++){
+            tempOut[i] = abs(input.get()[i]-inputStore[i])*gain;
             tempOut[i] = (smooth*outputStore[i]) + ((1-smooth)*tempOut[i]);
             tempOut[i] = ofClamp(tempOut[i], 0, 1);
         }
