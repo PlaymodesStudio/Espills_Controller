@@ -1314,7 +1314,7 @@
 			attributes = {
 				LastUpgradeCheck = 0600;
 			};
-			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "Espills_controller" */;
+			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "Espills_Controller" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1596,7 +1596,10 @@
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
-				GCC_PREPROCESSOR_DEFINITIONS = OFXOCEANODE_USE_OSC;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					OFXOCEANODE_USE_RANDOMSEED,
+					OFXOCEANODE_USE_OSC,
+				);
 				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "APPSTORE=1";
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
@@ -1865,7 +1868,10 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
-				GCC_PREPROCESSOR_DEFINITIONS = OFXOCEANODE_USE_OSC;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					OFXOCEANODE_USE_RANDOMSEED,
+					OFXOCEANODE_USE_OSC,
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
@@ -1951,7 +1957,10 @@
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
-				GCC_PREPROCESSOR_DEFINITIONS = OFXOCEANODE_USE_OSC;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					OFXOCEANODE_USE_RANDOMSEED,
+					OFXOCEANODE_USE_OSC,
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
@@ -2027,7 +2036,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "Espills_controller" */ = {
+		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "Espills_Controller" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B4E0A3A1720003C02F2 /* Debug */,
