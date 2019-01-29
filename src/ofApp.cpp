@@ -65,6 +65,8 @@ void ofApp::setup(){
     canvas.setContainer(container);
     canvas.setup();
     
+    container->loadPersistent();
+    
     controls = new ofxOceanodeControls(container);
     controls->get<ofxOceanodeBPMController>()->setBPM(80);
 }
@@ -86,6 +88,10 @@ void ofApp::keyPressed(int key){
             container->collapseGuis();
         }else if(key == 'e'){
             container->expandGuis();
+        }else if(key == 's'){
+            container->savePersistent();
+        }else if(key == 'u'){
+            container->updatePersistent();
         }
     }
 }
