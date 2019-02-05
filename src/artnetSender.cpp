@@ -35,7 +35,7 @@ void artnetSender::setup(){
     
     parameters->add(pollButton.set("Poll Devices"));
     
-    int numInputs = 7;
+    int numInputs = 2;
     
     for(int i = 0; i < numInputs; i++){
         universeMap[i] = ofParameter<int>();
