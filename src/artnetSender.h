@@ -41,6 +41,18 @@ public:
         json["outputNode"] = outputNode;
     }
     
+    void loadCustomPersistent(ofJson &json) override{
+        if(json.count("outputNode") == 1){
+            vector<string> outputNode = json["outputNode"];
+            for(auto input : inputMap){
+                ptrdiff_t pos = find(nodeOptions.begin(), nodeOptions.end(), outputNode[input.first]) - nodeOptions.begin();
+                if(pos < nodeOptions.size()) {
+                    universeMap[input.first] = pos;
+                }
+            }
+        }
+    }
+    
     virtual void presetRecallBeforeSettingParameters(ofJson &json) override{
 //        if(json.count("Inputs") == 1){
 //            vector<int> indexs = json["Inputs"];
@@ -73,15 +85,15 @@ public:
 //            ifNewCreatedChecker[maxIndex] = false;
 //        }
         
-            if(json.count("outputNode") == 1){ 
-                vector<string> outputNode = json["outputNode"];
-                for(auto input : inputMap){
-                    ptrdiff_t pos = find(nodeOptions.begin(), nodeOptions.end(), outputNode[input.first]) - nodeOptions.begin();
-                    if(pos < nodeOptions.size()) {
-                        universeMap[input.first] = pos;
-                    }
-                }
-            }
+//            if(json.count("outputNode") == 1){
+//                vector<string> outputNode = json["outputNode"];
+//                for(auto input : inputMap){
+//                    ptrdiff_t pos = find(nodeOptions.begin(), nodeOptions.end(), outputNode[input.first]) - nodeOptions.begin();
+//                    if(pos < nodeOptions.size()) {
+//                        universeMap[input.first] = pos;
+//                    }
+//                }
+//            }
     }
         
     virtual void presetRecallAfterSettingParameters(ofJson &json) override{
