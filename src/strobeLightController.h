@@ -18,12 +18,19 @@ public:
     void setup() override;
     void update(ofEventArgs &e) override;
     
+    void presetRecallBeforeSettingParameters(ofJson &json) override{
+        amber = vector<float>(1, 0);
+    }
+    
 private:
+    
+    void rgbToRgbw(float &r, float &g, float &b, float &w, bool clamp = false);
     
     ofParameter<int> numElements;
     ofParameter<vector<float>> red;
     ofParameter<vector<float>> green;
     ofParameter<vector<float>> blue;
+    ofParameter<vector<float>> amber;
     ofParameter<vector<float>> saturate;
     ofParameter<vector<float>> fader;
     ofParameter<float> masterFader;
