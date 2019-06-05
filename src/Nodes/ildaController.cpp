@@ -48,10 +48,10 @@ void ildaController::setup(){
     addParameterToGroupAndInfo(endCount.set("End Count", 25, 0, 60));//.isSavePreset = false;
     addParameterToGroupAndInfo(flipX.set("Flip X", false));
     addParameterToGroupAndInfo(flipY.set("Flip Y", false));
-    addParameterToGroupAndInfo(offsetX.set("Offset X", 0, -1, 1));
-    addParameterToGroupAndInfo(offsetY.set("Offset Y", 0, -1, 1));
-    addParameterToGroupAndInfo(scaleX.set("Scale X", 1, 0, 2));
-    addParameterToGroupAndInfo(scaleY.set("Scale Y", 1, 0, 2));
+    addParameterToGroupAndInfo(offsetX.set("Offset X", 0, -1, 1)).isSavePreset = false;
+    addParameterToGroupAndInfo(offsetY.set("Offset Y", 0, -1, 1)).isSavePreset = false;
+    addParameterToGroupAndInfo(scaleX.set("Scale X", 1, 0, 2)).isSavePreset = false;
+    addParameterToGroupAndInfo(scaleY.set("Scale Y", 1, 0, 2)).isSavePreset = false;
 //    parameters->add(offset.set("Offset", ofPoint(0,0), ofPoint(-1, 1), ofPoint(-1, 1)));
 //    parameters->add(scale.set("Scale", ofPoint(1, 1), ofPoint(0,0), ofPoint(1, 1)));
     
