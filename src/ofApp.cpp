@@ -88,10 +88,14 @@ void ofApp::keyPressed(int key){
             container->collapseGuis();
         }else if(key == 'e'){
             container->expandGuis();
-        }else if(key == 's'){
+        }else if(key == 'p'){
             container->savePersistent();
         }else if(key == 'u'){
             container->updatePersistent();
+        }else if(key == 's'){
+            container->saveCurrentPreset();
+        }else if(key == 'r'){
+            container->resetPhase();
         }
     }
 }
