@@ -87,16 +87,16 @@ vector<pair<ofPolyline, ofColor>> graphicPatternGenerator::computePolylines(){
                 }
             }
             else if(getParameterValueForPosition(numVertex, i) == 1){
-                unitPoly[0].addVertex(positionWithJitter - ofPoint(0, 0.0001));
-                unitPoly[0].addVertex(positionWithJitter + ofPoint(0.0001, 0));
-                unitPoly[0].addVertex(positionWithJitter - ofPoint(0.0001, 0));
-                unitPoly[0].addVertex(positionWithJitter + ofPoint(0, 0.0001));
+                unitPoly[0].addVertex(positionWithJitter - ofPoint(0, 0.001));
+                unitPoly[0].addVertex(positionWithJitter + ofPoint(0.001, 0));
+                unitPoly[0].addVertex(positionWithJitter - ofPoint(0.001, 0));
+                unitPoly[0].addVertex(positionWithJitter + ofPoint(0, 0.001));
             }else{
                 ofPoint firstCreatedPoint = ofPoint(-100, -100);
                 ofPoint lastCreatedVertex = ofPoint(-100, -100);
                 ofPoint newVertex;
                 int counter = 0;
-                for(float j = 0 ; j < 1 ; j = j + (1.0/(float)getParameterValueForPosition(numVertex, i))){
+                for(float j = 0 ; j < 1 ; j = j + (1.0/ofClamp((float)getParameterValueForPosition(numVertex, i), 2, 100))){
                     float jj = j + getParameterValueForPosition(rotation, i);
                     
                     newVertex.x = (sin(jj*2*PI)*getParameterValueForPosition(size, i)/2)+position.x;

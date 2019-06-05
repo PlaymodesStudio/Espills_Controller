@@ -50,9 +50,6 @@ public:
     void mouseDragged(ofMouseEventArgs &a) override;
     
     vector<pair<ofPolyline, ofColor>> computePolylines();
-    
-    ofParameterGroup* getGroup(){return parameters;};
-    
 private:
     void parameterChangedListener(ofAbstractParameter &parameter);
     int pointDraggingIndex;
